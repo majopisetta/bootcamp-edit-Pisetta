@@ -14,7 +14,7 @@
         * Django
 ## Tipo de datos y objetos
 * Built-in functions (son funciones que vienen con el lenguaje)
- *  input
- *  replace
+ * input
+   * replace
  *  
 
