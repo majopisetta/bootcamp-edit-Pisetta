@@ -17,4 +17,14 @@
 * Built-in functions (son funciones que vienen con el lenguaje)
    * replace
    * input
+   * type
+   * dir
+   * isinstance
+
+* Funciones de objetos
+  * Los objetos/variables de tipo str
+  * upper
+
+# Condicionales
+ * Vimos funcion IF
 
