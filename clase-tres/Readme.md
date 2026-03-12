@@ -28,3 +28,18 @@
 # Condicionales
  * Vimos funcion IF
 
+## Entornos Virtuales
+* Cuando instalaba un programa con pip install donde lo instalaba?
+* los instalaba global para todos mis programas en phyton
+* se pueden ver donde estan con
+   *pip --version
+  * pip show <nombre libreria>
+  * Ahora que pasa cuando tengo dos programas que usan la misma libreria pero necesitan verisones distintas?
+  * en ese caso hay que usar entornos virtuales
+  * el lio de las librerias no esolo en python cada lengiaje tiene su admonistrador
+  * conviene instalar en un entorno virtual cada proyecto. Cada proyecto x entorno virtual
+
+## Prompt: haceme una aplicacion de ejemplo en python de ventanas utilizando la libreria Tkinter
+
+
+
