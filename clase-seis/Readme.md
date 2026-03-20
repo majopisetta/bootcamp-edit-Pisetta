@@ -67,5 +67,24 @@
 
 * los diccionarios en python representan una estructura que almacena una lista de elementos clave valor donde la clave es única.
 * los diccionarios son casi lo mismo que un json en javascript
+* diccionarios anidados y lista de diccionarios  
 
-* 
+
+### Declarar y acceder
+## API (Aplication program interface)
+
+#esta muy relacionada con json
+# es una forma de comuynicar programas (generalmente un frontend con un backend)
+ * generalmente trabaja sobre protocolo HTTP
+ * hoy en dia se agrega el https que le agrega seguridad
+ * lo puedo pasar como si fuera una aplicacion
+ * lo puedo pensar como una aplicacion web pero en vez de devolver html, devuelve y recibe json 
+
+* Ejemplos de API
+ * https://pokeapi.co/api/v2/pokemon/
+ * Simpson api
+ * rick y morty api
+   
+## Trabajar con JSON
+*    Algo de todos los dias pasar de un diccionario a un json (str) y de un json a un diccionario 
+
