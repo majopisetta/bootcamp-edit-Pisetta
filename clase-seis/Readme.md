@@ -31,6 +31,7 @@
    aplellido : "pisetta"
    edad : 38
    }
+// tambien puedo escribir las claves entre comillas
 
    ´´´
 
@@ -41,6 +42,30 @@
    
    * Toon format  : reduce la longuitud del formato.
    *  ahora hay un lenguaje que sale como alternativa al json que se llama toon ( token object notation)
-   *  github.com/toon-format/toon 
+   *  github.com/toon-format/toon
+ 
+  # Phyton
 
+  * Basicos
+     * int
+     * float
+     * str
+     * complex
+     * bool
+    * Especiales
+      * None
+    * Enumerables
+     * dict
+     * range
+     * tuple
+     * list
+     * enumerate
+     * set 
   
+
+# Diccionarios 
+
+* los diccionarios en python representan una estructura que almacena una lista de elementos clave valor donde la clave es única.
+* los diccionarios son casi lo mismo que un json en javascript
+
+* 
