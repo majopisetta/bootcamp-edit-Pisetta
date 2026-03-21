@@ -86,5 +86,8 @@
  * rick y morty api
    
 ## Trabajar con JSON
-*    Algo de todos los dias pasar de un diccionario a un json (str) y de un json a un diccionario 
+ * Algo de todos los dias pasar de un diccionario a un json (str) y de un json a un diccionario 
 
+# Glosario
+* Harcodeado : Fijo en el codigo (Mala práctica)
+* 
