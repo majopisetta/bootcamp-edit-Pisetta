@@ -14,4 +14,9 @@
 
 * Para cada alumno individual voy a generar un diccionario y a la vez para la base de datos en memoria la voy a tener en una lista de diccionarios. 
 
+* Primera observacion: cambios
+    * Manejo de errores
+    * Validar entrada de datos (las cantidades que sean numeros)
+    * .... Y asi me tomo el tiempo de ver todas las mejoras posibles antes de continuar. 
+
 
