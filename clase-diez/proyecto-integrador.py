@@ -1,127 +1,43 @@
-import tkinter as tk
-from tkinter import messagebox
 
-# Base de datos en memoria
-db = [
-    {
-        "id": 1,
-        "nombre": "Esteban",
-        "apellido": "Calabria",
-        "cantidad_cursos": 3
-    }
-]
+# Definición de la clase Alumno
+class Alumno:
+    _ultimo_id = 0
 
-# ---------- FUNCIONES ----------
-def generar_id():
-    return max(alumno["id"] for alumno in db) + 1 if db else 1
+    def __init__(self, id, nombre, apellido, cantidad_cursos):
+        self.validar_datos(nombre, apellido, cantidad_cursos)
 
-def actualizar_lista():
-    lista.delete(0, tk.END)
-    for alumno in db:
-        texto = f"{alumno['id']} - {alumno['nombre']} {alumno['apellido']} ({alumno['cantidad_cursos']} cursos)"
-        lista.insert(tk.END, texto)
+        self.id = id
+        self.nombre = nombre.strip()
+        self.apellido = apellido.strip()
+        self.cantidad_cursos = cantidad_cursos
 
-def agregar_alumno():
-    try:
-        nombre = entry_nombre.get().strip()
-        apellido = entry_apellido.get().strip()
-        cursos = int(entry_cursos.get())
+        if id > Alumno._ultimo_id:
+            Alumno._ultimo_id = id
 
-        if not nombre or not apellido:
-            raise ValueError
+    @classmethod
+    def generar_id(cls):
+        cls._ultimo_id += 1
+        return cls._ultimo_id
 
-        nuevo = {
-            "id": generar_id(),
-            "nombre": nombre,
-            "apellido": apellido,
-            "cantidad_cursos": cursos
-        }
+    @staticmethod
+    def validar_datos(nombre, apellido, cantidad_cursos):
+        if not nombre or not nombre.strip():
+            raise ValueError("El nombre no puede estar vacío")
 
-        db.append(nuevo)
-        actualizar_lista()
-        limpiar_campos()
+        if not apellido or not apellido.strip():
+            raise ValueError("El apellido no puede estar vacío")
 
-    except:
-        messagebox.showerror("Error", "Datos inválidos")
+        if not isinstance(cantidad_cursos, int):
+            raise ValueError("La cantidad de cursos debe ser un número entero")
 
-def eliminar_alumno():
-    seleccionado = lista.curselection()
-    if not seleccionado:
-        return
+        if cantidad_cursos < 0:
+            raise ValueError("La cantidad de cursos no puede ser negativa")
 
-    index = seleccionado[0]
-    db.pop(index)
-    actualizar_lista()
+    def actualizar_datos(self, nombre, apellido, cantidad_cursos):
+        self.validar_datos(nombre, apellido, cantidad_cursos)
+        self.nombre = nombre.strip()
+        self.apellido = apellido.strip()
+        self.cantidad_cursos = cantidad_cursos
 
-def cargar_seleccion():
-    seleccionado = lista.curselection()
-    if not seleccionado:
-        return
-
-    alumno = db[seleccionado[0]]
-
-    entry_nombre.delete(0, tk.END)
-    entry_nombre.insert(0, alumno["nombre"])
-
-    entry_apellido.delete(0, tk.END)
-    entry_apellido.insert(0, alumno["apellido"])
-
-    entry_cursos.delete(0, tk.END)
-    entry_cursos.insert(0, alumno["cantidad_cursos"])
-
-def modificar_alumno():
-    seleccionado = lista.curselection()
-    if not seleccionado:
-        return
-
-    try:
-        alumno = db[seleccionado[0]]
-
-        alumno["nombre"] = entry_nombre.get()
-        alumno["apellido"] = entry_apellido.get()
-        alumno["cantidad_cursos"] = int(entry_cursos.get())
-
-        actualizar_lista()
-        limpiar_campos()
-
-    except:
-        messagebox.showerror("Error", "Datos inválidos")
-
-def limpiar_campos():
-    entry_nombre.delete(0, tk.END)
-    entry_apellido.delete(0, tk.END)
-    entry_cursos.delete(0, tk.END)
-
-# ---------- UI ----------
-ventana = tk.Tk()
-ventana.title("Gestión de Alumnos")
-ventana.geometry("500x400")
-
-# Inputs
-tk.Label(ventana, text="Nombre").pack()
-entry_nombre = tk.Entry(ventana)
-entry_nombre.pack()
-
-tk.Label(ventana, text="Apellido").pack()
-entry_apellido = tk.Entry(ventana)
-entry_apellido.pack()
-
-tk.Label(ventana, text="Cursos").pack()
-entry_cursos = tk.Entry(ventana)
-entry_cursos.pack()
-
-# Botones
-tk.Button(ventana, text="Agregar", command=agregar_alumno).pack(pady=5)
-tk.Button(ventana, text="Modificar", command=modificar_alumno).pack(pady=5)
-tk.Button(ventana, text="Eliminar", command=eliminar_alumno).pack(pady=5)
-
-# Lista
-lista = tk.Listbox(ventana)
-lista.pack(fill=tk.BOTH, expand=True)
-
-lista.bind("<<ListboxSelect>>", lambda e: cargar_seleccion())
-
-# Inicializar
-actualizar_lista()
-
-ventana.mainloop()
+    def __str__(self):
+        return f"Alumno({self.id}): {self.nombre} {self.apellido}, Cursos: {self.cantidad_cursos}"
